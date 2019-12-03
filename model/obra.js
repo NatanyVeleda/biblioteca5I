@@ -1,6 +1,6 @@
 const conexao = require('./conexao')
 
-var livro = conexao.Schema({
+var obra = conexao.Schema({
     titulo:{
         type:String
     },
@@ -10,13 +10,18 @@ var livro = conexao.Schema({
     foto:{
         type:String
     },
-    genero:{
+    modelo:{
         type:conexao.Schema.Types.ObjectId,
-        ref:"genero"
+        ref:"modelo"
     },
-    editora:{
+    investidor:{
         type:conexao.Schema.Types.ObjectId,
-        ref:"editora"
+        ref:"investidor"
     },
-    autores:[conexao.Schema.Types.ObjectId]
+    autores:[{
+        type:conexao.Schema.Types.ObjectId,
+        ref:"autor"
+    }]
 })
+
+module.exports = conexao.model("obra",obra)

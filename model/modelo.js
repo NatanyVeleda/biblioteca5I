@@ -1,9 +1,9 @@
 const conexao = require('./conexao')
 
-var genero = conexao.Schema({
+var modelo = conexao.Schema({
     nome:{
         type:String
     }
 })
 
-module.exports = conexao.model("genero",genero)
+module.exports = conexao.model("modelo",modelo)

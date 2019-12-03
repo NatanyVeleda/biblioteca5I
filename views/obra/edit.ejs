@@ -2,7 +2,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>LIVRO</h2>
+            <h2>OBRA</h2>
         </div>
         <!-- Horizontal Layout -->
         <div class="row clearfix">
@@ -10,11 +10,23 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            CADASTRAR LIVRO
+                            CADASTRAR OBRA
                         </h2>
                     </div>
                     <div class="body">
                         <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                            <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="nome">ID</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" readonly name="id" id="id" class="form-control" placeholder="Id da modelo" value="<%=obra._id%>" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                     <label for="titulo">Título</label>
@@ -23,46 +35,22 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" name="titulo" id="titulo" class="form-control"
-                                                placeholder="Título do Livro">
+                                                placeholder="Título do obra" value="<%=obra.titulo%>">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="genero">Genero</label>
+                                    <label for="isbn">ISBN</label>
                                 </div>
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <select name="genero" class="selectpicker">
-                                                <option>Terror</option>
-                                            </select>
+                                            <input type="text" name="isbn" id="isbn" class="form-control"
+                                                placeholder="ISBN" value="<%=obra.isbn%>">
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="editora">Editora</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <select name="editora" class="selectpicker">
-                                                <option>Editora Nova</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="autores">Autor</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                    <input type="checkbox" name="autor" id="basic_checkbox_1" checked="">
-                                    <label for="basic_checkbox_1">Default</label>
                                 </div>
                             </div>
                             <div class="row clearfix">
@@ -72,21 +60,69 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <textarea rows="4" class="form-control no-resize" name="sinopse"
-                                                placeholder="Digite a sinopse do livro aqui!"></textarea>
+                                            <textarea name="sinopse" id="sinopse" class="form-control"
+                                                placeholder="Sinopse"><%=obra.sinopse%></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="foto">Foto do Livro</label>
+                                    <label for="foto">Foto do obra</label>
                                 </div>
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="file" required name="foto" id="foto" class="form-control"
-                                                placeholder="Foto do Livro">
+                                                placeholder="Foto do Modelo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label for="modelo">Modelo</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select name="modelo">
+                                                <% Modelos.forEach(function(modelo){ %>
+                                                    <option <%=obra.modelo._id.toString() == modelo._id.toString()?"selected":""  %> value="<%=modelo._id%>"><%=modelo.nome%></option>
+                                                <%});%>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label for="modelo">Modelo</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select name="modelo">
+                                                <% Modelos.forEach(function(modelo){ %>
+                                                    <option <%=obra.modelo._id.toString() == modelo._id.toString()?"selected":""  %> value="<%=modelo._id%>"><%=modelo.nome%></option>
+                                                <%});%>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label for="autores">Autores</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select name="autores" multiple>
+                                                <% Autores.forEach(function(autor){ %>
+                                                    <option <%=obra.autores.toString().indexOf(autor._id.toString())!=-1?"selected":""%> value="<%=autor._id%>"><%=autor.nome%></option>
+                                                <%});%>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

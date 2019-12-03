@@ -2,14 +2,14 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>EDITORAS</h2>
+            <h2>OBRAS</h2>
         </div>
         <!-- Hover Rows -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <form action="/editora" method="POST">
+                        <form action="/obra" method="POST">
                             <div class="row">
                                 <div class="col-md-10">
                                     <div class="form-group">
@@ -30,30 +30,43 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>EDITORA</th>
-                                    <th>ENDEREÇO</th>
-                                    <th>DATA DE FUNDAÇÃO</th>
+                                    <th>TÍTULO</th>
+                                    <th>MODELO</th>
+                                    <th>ARTISTA</th>
+                                    <th>INVESTIDOR</th>
+                                    <th>SINOPSE</th>
                                     <th>FOTO</th>
                                     <th>EDITA</th>
                                     <th>DELETA</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <% Editoras.forEach(function(editora){ %>
+                                <% Obras.forEach(function(obra){ %>
                                 <tr>
-                                    <th scope="row"><%=editora._id%></th>
-                                    <td><%=editora.nome%></td>
-                                    <td><%=editora.endereco%></td>
-                                    <td><%=editora.datafundacao.getDate() + "/" + editora.datafundacao.getMonth() + "/" + editora.datafundacao.getFullYear()%></td>
-                                    <td><img style="height: 50px;" src="/arquivos/<%=editora.foto%>"></td>
+                                    <th scope="row"><%=obra._id%></th>
+                                    <td><%=obra.titulo%></td>
+                                    <td><%=obra.modelo.nome%></td>
                                     <td>
-                                        <a href="/editora/edit/<%=editora._id%>"
+                                            <% 
+                                            obra.autores.forEach(function(autor){ %>
+                                                <%console.log(autor.nome)%><br>
+                                                <%=autor.nome%><br>
+                                            <%});%><br>
+                                        </td>
+                                    <td><%=obra.investidor.nome%></td>
+                                    <td><%=obra.sinopse%></td>
+                                   
+                                    <td>
+                                        <img style="height: 50px;" src="/arquivos/<%=obra.foto%>">
+                                    </td>
+                                    <td>
+                                        <a href="/obra/edit/<%=obra._id%>"
                                             class="btn btn-warning btn-circle-lg waves-effect waves-circle waves-float">
                                             <i class="material-icons">edit</i>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="/editora/del/<%=editora._id%>"
+                                        <a href="/obra/del/<%=obra._id%>"
                                             class="btn btn-danger btn-circle-lg waves-effect waves-circle waves-float">
                                             <i class="material-icons">delete</i>
                                         </a>

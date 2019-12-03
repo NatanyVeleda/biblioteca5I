@@ -1,6 +1,6 @@
 const conexao = require('./conexao')
 
-var editora = conexao.Schema({
+var investidor = conexao.Schema({
     nome:{
         type:String
     },
@@ -15,4 +15,4 @@ var editora = conexao.Schema({
     }
 })
 
-module.exports = conexao.model("editora",editora)
+module.exports = conexao.model("investidor",investidor)

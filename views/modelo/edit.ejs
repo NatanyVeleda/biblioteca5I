@@ -2,7 +2,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>EDITORA</h2>
+            <h2>MODELO</h2>
         </div>
         <!-- Horizontal Layout -->
         <div class="row clearfix">
@@ -10,11 +10,23 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            CADASTRAR EDITORA
+                            EDITAR MODELO
                         </h2>                            
                     </div>
                     <div class="body">
-                        <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST">
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label for="id">ID</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" readonly name="id" id="id" class="form-control" placeholder="ID" value="<%=modelo._id%>">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row clearfix">
                                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                     <label for="nome">Nome</label>
@@ -22,43 +34,7 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome da editora">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="nacionalidade">Endereço</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" name="endereco" id="nacionalidade" class="form-control" placeholder="Endereço">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="datanasc">Data de fundação</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="date" name="datafundacao" id="datanasc" class="form-control" placeholder="Data de nascimento">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="foto">Foto do Editora</label>
-                                </div>
-                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="file" required name="foto" id="foto" class="form-control" placeholder="Foto do Editora">
+                                            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome do modelo" value="<%=modelo.nome%>">
                                         </div>
                                     </div>
                                 </div>
